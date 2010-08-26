@@ -1,0 +1,8 @@
+*.swp
+bin/*
+msvc/*
+!msvc/app.ico
+!msvc/app.rc
+msvc/msvc2008_splint/*
+!msvc/msvc2008_splint/msvc2008_splint.sln
+!msvc/msvc2008_splint/msvc2008_splint.vcproj
