@@ -10,11 +10,13 @@
                         <RemoveFolder Id="ProgramMenuDir" On="uninstall" />
                         <RegistryValue Root="HKCU" Key="Software\[Manufacturer]\[ProductName]" Type="string" Value="" />
                         <Shortcut Id="UninstallProduct" Name="Uninstall" Description="Uninstalls the application" Target="[System64Folder]msiexec.exe" Arguments="/x [ProductCode]" />
+                        <Shortcut Id="docspdf" Name="Manual (pdf)" Target="[APPLICATIONROOTDIRECTORY]docs\manual.pdf" />
+                        <Shortcut Id="docshtml" Name="Manual (html)" Target="[APPLICATIONROOTDIRECTORY]docs\html\manual.htm" />
                         <util:InternetShortcut Id="WebsiteShortcut" Name="Splint Homepage" Target="http://www.splint.org" />
                     </Component>
                 </Directory>
             </Directory>
-            <Directory Id="splint_3.1.2" Name="splint-3.1.2">
+            <Directory Id="APPLICATIONROOTDIRECTORY" Name="splint-3.1.2">
                 <Component Id="LICENSE" DiskId="1" Guid="6F41924A-4980-4F71-B72D-FDA473CA5882">
                     <File Id="LICENSE" Name="LICENSE" Source="..\LICENSE" />
                 </Component>
@@ -143,15 +145,6 @@
                     <Component Id="lslinit.lsi" DiskId="1" Guid="FCB3821C-65CE-43DA-9CD2-BEB04EB5DDBA">
                         <File Id="lslinit.lsi" Name="lslinit.lsi" Source="..\lib\lslinit.lsi" />
                     </Component>
-                    <Component Id="Makefile" DiskId="1" Guid="2CE92C41-77BA-4FDE-AE39-2C25DE2C407D">
-                        <File Id="Makefile" Name="Makefile" Source="..\lib\Makefile" />
-                    </Component>
-                    <Component Id="Makefile.am" DiskId="1" Guid="36DA491A-85CF-4FA5-827E-BD9CC94A8852">
-                        <File Id="Makefile.am" Name="Makefile.am" Source="..\lib\Makefile.am" />
-                    </Component>
-                    <Component Id="Makefile.in" DiskId="1" Guid="1BC009CF-5CCE-4E2B-9FD9-448F21F6A576">
-                        <File Id="Makefile.in" Name="Makefile.in" Source="..\lib\Makefile.in" />
-                    </Component>
                     <Component Id="posix.h" DiskId="1" Guid="4C6D8BEA-F07B-4A0E-B844-C6B9F60ED66C">
                         <File Id="posix.h" Name="posix.h" Source="..\lib\posix.h" />
                     </Component>
@@ -191,6 +184,28 @@
                     <Component Id="unixstrict.lcd" DiskId="1" Guid="F67D32B9-C511-4A1A-A755-509CC9E20670">
                         <File Id="unixstrict.lcd" Name="unixstrict.lcd" Source="..\lib\unixstrict.lcd" />
                     </Component>
+                </Directory>
+                <Directory Id="docs" Name="docs">
+                    <Component Id="manual.css" DiskId="1" Guid="5FC0656E-6649-41FD-AB11-6F3280F79936">
+                        <File Id="manual.css" Name="manual.css" Source="..\docs\manual.css" />
+                    </Component>
+                    <Component Id="manual.pdf" DiskId="1" Guid="BDD5CE4A-787C-4D45-A855-B00012EE899A">
+                        <File Id="manual.pdf" Name="manual.pdf" Source="..\docs\manual.pdf" />
+                    </Component>
+                    <Directory Id="html" Name="html">
+                        <Component Id="footer.html" DiskId="1" Guid="C2D54B4A-5771-44F5-A1BE-613E27F1F97F">
+                            <File Id="footer.html" Name="footer.html" Source="..\docs\html\footer.html" />
+                        </Component>
+                        <Component Id="header.html" DiskId="1" Guid="D9089632-C4B8-4162-9E06-6319DEEE313C">
+                            <File Id="header.html" Name="header.html" Source="..\docs\html\header.html" />
+                        </Component>
+                        <Component Id="manual.htm" DiskId="1" Guid="E1F59621-D011-4CF9-807C-7D8F8B06C7F4">
+                            <File Id="manual.htm" Name="manual.htm" Source="..\docs\html\manual.htm" />
+                        </Component>
+                        <Component Id="realloc.htm" DiskId="1" Guid="E1C9DCC0-556A-4EA0-B128-0B6779C62E0E">
+                            <File Id="realloc.htm" Name="realloc.htm" Source="..\docs\html\realloc.htm" />
+                        </Component>
+                    </Directory>
                 </Directory>
             </Directory>
         </Directory>
@@ -234,9 +249,6 @@
             <ComponentRef Id="lclinit.lci" />
             <ComponentRef Id="linux.h" />
             <ComponentRef Id="lslinit.lsi" />
-            <ComponentRef Id="Makefile" />
-            <ComponentRef Id="Makefile.am" />
-            <ComponentRef Id="Makefile.in" />
             <ComponentRef Id="posix.h" />
             <ComponentRef Id="posix.lcd" />
             <ComponentRef Id="posixstrict.lcd" />
@@ -253,6 +265,12 @@
             <ComponentRef Id="StartMenuShortcuts" />
             <ComponentRef Id="LICENSE" />
             <ComponentRef Id="README" />
+            <ComponentRef Id="manual.css" />
+            <ComponentRef Id="manual.pdf" />
+            <ComponentRef Id="footer.html" />
+            <ComponentRef Id="header.html" />
+            <ComponentRef Id="manual.htm" />
+            <ComponentRef Id="realloc.htm" />
         </Feature>
         <UI />
         <UIRef Id="WixUI_Minimal" />
