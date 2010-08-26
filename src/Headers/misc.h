@@ -59,9 +59,7 @@ extern char char_fromInt (int p_x) /*@*/ ;
 extern /*@exposed@*/ cstring removePreDirs (cstring p_s);
 
 /* These are defined by the bison library (?) */
-#ifndef _MSC_VER
 extern /*@external@*/ int isatty (int);
-#endif
 extern /*@external@*/ int yywrap (void);
 /*@=czechfcns@*/
 

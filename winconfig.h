@@ -3,50 +3,20 @@
 
 /*@ -macroconstdecl@*/
 
-/* build */
-#define BUILD "msvc2008"
-
-/* build_alias */
-#define BUILD_ALIAS ""
-
-/* build_cpu */
-#define BUILD_CPU "i686"
-
-/* build_os */
-#define BUILD_OS "win32"
-
-/* build_vendor */
-#define BUILD_VENDOR "pc"
-
 /* The directory where Splint's library files live */
-#define DEFAULT_LARCHPATH "C:\\splint-3.1.2\\lib"
+#define DEFAULT_LARCHPATH ".;C:/splint-3.1.2/lib"
 
 /* Splint's imports directory */
-#define DEFAULT_LCLIMPORTDIR "C:\\splint-3.1.2\\imports"
+#define DEFAULT_LCLIMPORTDIR ".;C:/splint-3.1.2/imports"
 
 /* system include directory */
-#define GCC_INCLUDE_DIR "C:\\Program Files\\Microsoft SDKs\\Windows\\v7.0\\include"
+#define GCC_INCLUDE_DIR "C:/include"
 
 /* alternate include directory */
-#define GCC_INCLUDE_DIR2 "C:\\Program Files\\Microsoft Visual Studio 9.0\\VC\\INCLUDE"
-
-/* host */
-#define HOST "i686-pc-win32"
-
-/* host_alias */
-#define HOST_ALIAS ""
-
-/* host_cpu */
-#define HOST_CPU "i686"
-
-/* host_os */
-#define HOST_OS "win2k3"
-
-/* host_vendor */
-#define HOST_VENDOR "pc"
+#define GCC_INCLUDE_DIR2 "C:/local/include"
 
 /* String describing who compiled this binary and how */
-#define LCL_COMPILE "Compiled using cl /x on WIN2k3 MAOLAPTOP123 1.0.12(0.46/3/2) 2010-02-05 01:08 i686 unknown by maolaptop123\\maoserr"
+#define LCL_COMPILE "Compiled using Microsoft Visual Studio 2008"
 
 /* Splint's version number */
 #define LCL_PARSE_VERSION "Splint 3.1.2"
@@ -54,51 +24,24 @@
 /* Define to disable support LCL files */
 /* #undef NOLCL */
 
-/* Define to the address where bug reports for this package should be sent. */
-#define PACKAGE_BUGREPORT "splint-bug@splint.org"
-
-/* Define to the full name of this package. */
-#define PACKAGE_NAME "Splint"
-
-/* Define to the full name and version of this package. */
-#define PACKAGE_STRING "Splint 3.1.2"
-
-/* Define to the one symbol short name of this package. */
-#define PACKAGE_TARNAME "splint"
-
-/* Define to the version of this package. */
-#define PACKAGE_VERSION "3.1.2"
-
 /* Splint's version number and configure/build date */
 #define SPLINT_VERSION "Splint 3.1.2 --- 25 Aug 2010"
 
 /* The system's main include directory */
-#define SYSTEM_LIBDIR "C:\\Program Files\\Microsoft Visual Studio 9.0\\VC\\INCLUDE"
-
-/* target */
-#define TARGET "i686-pc-win32"
-
-/* target_alias */
-#define TARGET_ALIAS ""
+#define SYSTEM_LIBDIR "C:/INCLUDE"
 
 /* target_cpu */
-#define TARGET_CPU "i686"
-
-/* target_os */
-#define TARGET_OS "win2k3"
-
-/* target_vendor */
-#define TARGET_VENDOR "pc"
+#define TARGET_CPU "x86"
 
 /* uname output */
-#define UNAME "WIN2003"
+#define UNAME "WIN32"
 
 /* Define if you're on a Unixy system */
-#define UNIX 0
+//#define UNIX 0
 
 /* Define to 1 if `lex' declares `yytext' as a `char *' by default, not a
    `char[]'. */
-/* #undef YYTEXT_POINTER */
+#define YYTEXT_POINTER 1
 
 /* needed to expose mode_t on some machines */
 /* #undef _ALL_SOURCE */

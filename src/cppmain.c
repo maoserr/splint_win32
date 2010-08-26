@@ -57,11 +57,9 @@ Foundation, 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 # include <stdio.h>
 
 # ifdef WIN32
-#  ifndef _MSC_VER
 /*@-ansireserved@*/
 extern /*@external@*/ /*@observer@*/ char *getenv (const char *);
 /*@=ansireserved@*/
-#  endif
 # endif
 
 /* char *progname; */

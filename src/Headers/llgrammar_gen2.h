@@ -441,7 +441,7 @@ typedef union YYSTYPE
   /*@only@*/ CTypesNode ctypes;
   /*@-redef@*/
 }
-/* Line 1529 of yacc.c.  */
+/* Line 1489 of yacc.c.  */
 
 	YYSTYPE;
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */

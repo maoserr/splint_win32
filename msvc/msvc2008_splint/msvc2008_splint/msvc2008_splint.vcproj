@@ -42,7 +42,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="0"
 				AdditionalIncludeDirectories="&quot;..\..\..\src\Headers&quot;"
-				PreprocessorDefinitions="WIN32;_DEBUG;_CONSOLE;HAVE_CONFIG_H;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_STDLIB_H"
+				PreprocessorDefinitions="HAVE_CONFIG_H;_MBCS;WIN32;_CRT_SECURE_NO_WARNING;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="1"
@@ -61,6 +61,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
+				AdditionalDependencies="setargv.obj "
 				OutputFile="$(OutDir)\splint_debug.exe"
 				LinkIncremental="2"
 				GenerateDebugInformation="true"
@@ -117,7 +118,7 @@
 				Optimization="3"
 				EnableIntrinsicFunctions="true"
 				AdditionalIncludeDirectories="&quot;..\..\..\src\Headers&quot;"
-				PreprocessorDefinitions="WIN32;NDEBUG;_CONSOLE;HAVE_CONFIG_H;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_STDLIB_H"
+				PreprocessorDefinitions="HAVE_CONFIG_H;_MBCS;WIN32;_CRT_SECURE_NO_WARNING;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE"
 				RuntimeLibrary="0"
 				EnableFunctionLevelLinking="true"
 				UsePrecompiledHeader="0"
@@ -135,6 +136,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
+				AdditionalDependencies="setargv.obj "
 				OutputFile="$(OutDir)\splint.exe"
 				LinkIncremental="1"
 				GenerateDebugInformation="false"
@@ -771,6 +773,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\..\..\src\snprintf.c"
+				>
+			</File>
+			<File
 				RelativePath="..\..\..\src\sort.c"
 				>
 			</File>
@@ -930,6 +936,10 @@
 			</File>
 			<File
 				RelativePath="..\..\..\src\Headers\abstractNode.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\src\Headers\aliasChecks.h"
 				>
 			</File>
 			<File
@@ -1962,6 +1972,10 @@
 			</File>
 			<File
 				RelativePath="..\..\..\src\Headers\usymIdSet.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\src\Headers\usymtab-branch.h"
 				>
 			</File>
 			<File

@@ -361,7 +361,7 @@ static void cppReader_scanBuffer (cppReader *p_pfile);
 # if defined (WIN32) || defined (OS2) && defined (__IBMC__)
 
 /* SMF */
-# if !defined(BCC32) && !defined(__GNUC__)
+# ifndef BCC32
 /*
 ** WIN32 (at least the VC++ include files) does not define mode_t.
 */
@@ -2202,6 +2202,13 @@ static char rest_extension[] = "...";
 /*@notfunction@*/
 #define REST_EXTENSION_LENGTH	(sizeof (rest_extension) - 1)
 
+/*@-readonlytrans@*/
+static char rest_name[] = "__VA_ARGS__";
+/*:=readonlytrans@*/
+
+/*@notfunction@*/
+#define REST_NAME_LENGTH	(sizeof (rest_name) - 1)
+
 /* Create a DEFINITION node from a #define directive.  Arguments are
    as for do_define.  */
 
@@ -2272,6 +2279,28 @@ create_definition (/*@exposed@*/ char *buf, char *limit,
 				  cstring_fromChars (rest_extension)));
 	  }
 
+	if (limit - bp > size_toInt (REST_EXTENSION_LENGTH)
+	    && strncmp (rest_extension, bp, REST_EXTENSION_LENGTH) == 0)
+          {
+              fileloc loc = cppReader_getLoc(pfile);
+              if (!context_flagOn (FLG_GNUEXTENSIONS, loc))
+                {
+                    (void) llgenhinterror 
+                        (FLG_SYNTAX,
+                         message ("VAR_ARG macros are not supported by ISO C99"),
+                         message ("Use +gnuextensions to allow VAR_ARG macros "
+                                  "(and other GNU language extensions) "
+                                  "without this warning"),
+                         loc);
+                }
+              rest_args = 1;
+              temp->rest_args = 1;
+              temp->name = rest_name;
+              temp->length = REST_NAME_LENGTH;
+          }
+	else
+	  {
+
 	if (!is_idstart[(int) *bp])
 	  {
 	    cppReader_pedwarnLit (pfile,
@@ -2293,7 +2322,8 @@ create_definition (/*@exposed@*/ char *buf, char *limit,
 	  }
 
 	temp->length = size_fromInt (bp - temp->name);
-
+          }
+    
 	if (rest_args != 0)
 	  {
 	    bp += REST_EXTENSION_LENGTH;
@@ -7412,7 +7442,7 @@ parseMoveMark (struct parse_marker *pmark, cppReader *pfile)
     }
 
   pmark->position = pbuf->cur - pbuf->buf;
-  DPRINTF (("move mark: %s", pmark->position));
+  DPRINTF (("move mark: %d", pmark->position));
 }
 
 void cpplib_initializeReader (cppReader *pfile) /* Must be done after library is loaded. */
@@ -7865,7 +7895,6 @@ static bool cpp_shouldCheckMacro (cppReader *pfile, char *p) /*@modifies p*/
 {
   bool checkmacro = FALSE;
   bool hasParams = FALSE;
-  bool noexpand = FALSE;
   cstring sname;
   char c;
 
@@ -7941,17 +7970,6 @@ static bool cpp_shouldCheckMacro (cppReader *pfile, char *p) /*@modifies p*/
     }
   else
     {
-      if (noexpand)
-	{
-	  checkmacro = TRUE;
-
-	  if (!expectenditer)
-	    {
-	      noexpand = FALSE;
-	    }
-	}
-      else
-	{
 	  if (usymtab_existsReal (sname))
 	    {
 	      uentry ue = usymtab_lookup (sname);
@@ -8106,7 +8124,6 @@ static bool cpp_shouldCheckMacro (cppReader *pfile, char *p) /*@modifies p*/
 		  incLine ();
 		}
 	    }
-	}
     }
 
   if (!checkmacro)
