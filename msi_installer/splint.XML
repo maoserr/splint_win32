@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
+    <Product Id="82FCC022-422D-41D9-B6EC-01C9C903E805" Name="Splint" Language="1033" Version="3.1.2.0" Manufacturer="Splint developers." UpgradeCode="745DD877-DF97-4396-82C4-EF6983E011C3">
+        <Package InstallerVersion="200" Compressed="yes" />
+        <Media Id="1" Cabinet="simple.cab" EmbedCab="yes" />
+        <Directory Id="TARGETDIR" Name="SourceDir">
+            <Directory Id="ProgramMenuFolder">
+                <Directory Id="ProgramMenuDir" Name="splint">
+                    <Component Id="StartMenuShortcuts" Guid="55DA9EBA-AC4E-48F7-8520-08BC7BA139D6">
+                        <RemoveFolder Id="ProgramMenuDir" On="uninstall" />
+                        <RegistryValue Root="HKCU" Key="Software\[Manufacturer]\[ProductName]" Type="string" Value="" />
+                        <Shortcut Id="UninstallProduct" Name="Uninstall" Description="Uninstalls the application" Target="[System64Folder]msiexec.exe" Arguments="/x [ProductCode]" />
+                        <util:InternetShortcut Id="WebsiteShortcut" Name="Splint Homepage" Target="http://www.splint.org" />
+                    </Component>
+                </Directory>
+            </Directory>
+            <Directory Id="splint_3.1.2" Name="splint-3.1.2">
+                <Component Id="LICENSE" DiskId="1" Guid="6F41924A-4980-4F71-B72D-FDA473CA5882">
+                    <File Id="LICENSE" Name="LICENSE" Source="..\LICENSE" />
+                </Component>
+                <Component Id="README" DiskId="1" Guid="1EF98786-FE40-4EA7-958A-02920AEDECBB">
+                    <File Id="README" Name="README" Source="..\README" />
+                </Component>
+                <Directory Id="bin" Name="bin">
+                    <Component Id="splint.exe" DiskId="1" Guid="4D065AC4-D880-4EA2-B36E-B225DA7D563D">
+                        <File Id="splint.exe" Name="splint.exe" Source="..\bin\splint.exe" />
+                    </Component>
+                </Directory>
+                <Directory Id="imports" Name="imports">
+                    <Component Id="assert.lcl" DiskId="1" Guid="7E25DE9E-8C0C-4259-92C8-BAC3C7D8AB5B">
+                        <File Id="assert.lcl" Name="assert.lcl" Source="..\imports\assert.lcl" />
+                    </Component>
+                    <Component Id="assert.lcs" DiskId="1" Guid="2BF4B1D7-3591-4DB7-A122-5AE53C4F52AB">
+                        <File Id="assert.lcs" Name="assert.lcs" Source="..\imports\assert.lcs" />
+                    </Component>
+                    <Component Id="ctype.lcl" DiskId="1" Guid="61C2AE37-2A8A-4053-873C-747A01052551">
+                        <File Id="ctype.lcl" Name="ctype.lcl" Source="..\imports\ctype.lcl" />
+                    </Component>
+                    <Component Id="ctype.lcs" DiskId="1" Guid="4C1F5CDC-26F9-4252-ABED-FCE62CEE3A56">
+                        <File Id="ctype.lcs" Name="ctype.lcs" Source="..\imports\ctype.lcs" />
+                    </Component>
+                    <Component Id="errno.lcl" DiskId="1" Guid="CBA5DFFE-1496-4C71-9EA6-1CAC4CE570A3">
+                        <File Id="errno.lcl" Name="errno.lcl" Source="..\imports\errno.lcl" />
+                    </Component>
+                    <Component Id="errno.lcs" DiskId="1" Guid="1A2A2FE6-9A5C-4A0A-B1CD-290E7AB411FB">
+                        <File Id="errno.lcs" Name="errno.lcs" Source="..\imports\errno.lcs" />
+                    </Component>
+                    <Component Id="limits.lcl" DiskId="1" Guid="8D96A713-78E7-42F0-AAE5-48A135993E51">
+                        <File Id="limits.lcl" Name="limits.lcl" Source="..\imports\limits.lcl" />
+                    </Component>
+                    <Component Id="limits.lcs" DiskId="1" Guid="200E45B7-E59B-4F1D-970C-309E6BB14542">
+                        <File Id="limits.lcs" Name="limits.lcs" Source="..\imports\limits.lcs" />
+                    </Component>
+                    <Component Id="locale.lcl" DiskId="1" Guid="9ACE236B-6A2C-4999-B6CF-69CDDAA65B84">
+                        <File Id="locale.lcl" Name="locale.lcl" Source="..\imports\locale.lcl" />
+                    </Component>
+                    <Component Id="locale.lcs" DiskId="1" Guid="69EDA1B0-B955-4FAB-9459-47CC1A9AECB6">
+                        <File Id="locale.lcs" Name="locale.lcs" Source="..\imports\locale.lcs" />
+                    </Component>
+                    <Component Id="math.lcl" DiskId="1" Guid="263FB118-9CCD-4761-8722-924003669AE4">
+                        <File Id="math.lcl" Name="math.lcl" Source="..\imports\math.lcl" />
+                    </Component>
+                    <Component Id="math.lcs" DiskId="1" Guid="99F1381A-67AB-4AC4-B432-98408A2B3E68">
+                        <File Id="math.lcs" Name="math.lcs" Source="..\imports\math.lcs" />
+                    </Component>
+                    <Component Id="setjmp.lcl" DiskId="1" Guid="51BE4A7F-99B9-4A44-857F-6E0E7D111B51">
+                        <File Id="setjmp.lcl" Name="setjmp.lcl" Source="..\imports\setjmp.lcl" />
+                    </Component>
+                    <Component Id="setjmp.lcs" DiskId="1" Guid="4FFACAC0-6528-4B02-A08F-F0AB7FB535BC">
+                        <File Id="setjmp.lcs" Name="setjmp.lcs" Source="..\imports\setjmp.lcs" />
+                    </Component>
+                    <Component Id="signal.lcl" DiskId="1" Guid="1F0D2645-F9E3-40BB-83B9-8971C45724D9">
+                        <File Id="signal.lcl" Name="signal.lcl" Source="..\imports\signal.lcl" />
+                    </Component>
+                    <Component Id="signal.lcs" DiskId="1" Guid="4F9737B9-572D-45DA-B421-26357F345F6F">
+                        <File Id="signal.lcs" Name="signal.lcs" Source="..\imports\signal.lcs" />
+                    </Component>
+                    <Component Id="stdarg.lcl" DiskId="1" Guid="1AECE053-383D-4354-BEBA-164790397D8A">
+                        <File Id="stdarg.lcl" Name="stdarg.lcl" Source="..\imports\stdarg.lcl" />
+                    </Component>
+                    <Component Id="stdarg.lcs" DiskId="1" Guid="60E87A20-D1B6-4FC9-888C-5EE4329E0CF0">
+                        <File Id="stdarg.lcs" Name="stdarg.lcs" Source="..\imports\stdarg.lcs" />
+                    </Component>
+                    <Component Id="stdio.lcl" DiskId="1" Guid="3B361FA4-FF9D-4572-B923-9119649A46CB">
+                        <File Id="stdio.lcl" Name="stdio.lcl" Source="..\imports\stdio.lcl" />
+                    </Component>
+                    <Component Id="stdio.lcs" DiskId="1" Guid="22B960A9-9DA9-4ED4-BD2A-FC4B8B0DF12B">
+                        <File Id="stdio.lcs" Name="stdio.lcs" Source="..\imports\stdio.lcs" />
+                    </Component>
+                    <Component Id="stdlib.lcl" DiskId="1" Guid="E1BF7417-AEEA-4199-8D95-24B0C6B269A6">
+                        <File Id="stdlib.lcl" Name="stdlib.lcl" Source="..\imports\stdlib.lcl" />
+                    </Component>
+                    <Component Id="stdlib.lcs" DiskId="1" Guid="3428E683-DD98-4F4C-8625-71622526217B">
+                        <File Id="stdlib.lcs" Name="stdlib.lcs" Source="..\imports\stdlib.lcs" />
+                    </Component>
+                    <Component Id="string.lcl" DiskId="1" Guid="F7512BFB-0142-4498-B5F0-C39C5C43EC02">
+                        <File Id="string.lcl" Name="string.lcl" Source="..\imports\string.lcl" />
+                    </Component>
+                    <Component Id="string.lcs" DiskId="1" Guid="7253388C-C9AA-4AD5-93FA-5E5E397C2335">
+                        <File Id="string.lcs" Name="string.lcs" Source="..\imports\string.lcs" />
+                    </Component>
+                    <Component Id="strings.lcl" DiskId="1" Guid="9570F042-70A9-4819-B994-3857962A3541">
+                        <File Id="strings.lcl" Name="strings.lcl" Source="..\imports\strings.lcl" />
+                    </Component>
+                    <Component Id="strings.lcs" DiskId="1" Guid="2E0E5A1C-617D-41E6-B3C4-414CC350BA57">
+                        <File Id="strings.lcs" Name="strings.lcs" Source="..\imports\strings.lcs" />
+                    </Component>
+                    <Component Id="time.lcl" DiskId="1" Guid="F893433B-B811-4AA4-9AB2-B4C5DE51EC10">
+                        <File Id="time.lcl" Name="time.lcl" Source="..\imports\time.lcl" />
+                    </Component>
+                    <Component Id="time.lcs" DiskId="1" Guid="85E7615A-0176-4D1A-A288-C941130AFAB9">
+                        <File Id="time.lcs" Name="time.lcs" Source="..\imports\time.lcs" />
+                    </Component>
+                </Directory>
+                <Directory Id="lib" Name="lib">
+                    <Component Id="bool.h" DiskId="1" Guid="6BE84025-FD54-4013-A353-72BF4E01C811">
+                        <File Id="bool.h" Name="bool.h" Source="..\lib\bool.h" />
+                    </Component>
+                    <Component Id="CTrait.syms" DiskId="1" Guid="29F2499E-9EBC-4452-AB9E-A2CC587A2740">
+                        <File Id="CTrait.syms" Name="CTrait.syms" Source="..\lib\CTrait.syms" />
+                    </Component>
+                    <Component Id="CTraitGen.lcl" DiskId="1" Guid="09ACC684-355D-4C47-8849-6620E9528264">
+                        <File Id="CTraitGen.lcl" Name="CTraitGen.lcl" Source="..\lib\CTraitGen.lcl" />
+                    </Component>
+                    <Component Id="file.mts" DiskId="1" Guid="1A76497B-44F0-4391-943F-B9E09880D0B4">
+                        <File Id="file.mts" Name="file.mts" Source="..\lib\file.mts" />
+                    </Component>
+                    <Component Id="file.xh" DiskId="1" Guid="05CAAC10-73EE-4E55-97EF-D5F5616EC69C">
+                        <File Id="file.xh" Name="file.xh" Source="..\lib\file.xh" />
+                    </Component>
+                    <Component Id="filerw.mts" DiskId="1" Guid="A9FCFCDD-6F3C-4426-9EA4-D291B800576B">
+                        <File Id="filerw.mts" Name="filerw.mts" Source="..\lib\filerw.mts" />
+                    </Component>
+                    <Component Id="filerw.xh" DiskId="1" Guid="530DCCE9-51F1-44E3-B6E2-1DC06572AEEE">
+                        <File Id="filerw.xh" Name="filerw.xh" Source="..\lib\filerw.xh" />
+                    </Component>
+                    <Component Id="lclinit.lci" DiskId="1" Guid="BB55EE4B-155A-4236-8DEC-36AE83F1B634">
+                        <File Id="lclinit.lci" Name="lclinit.lci" Source="..\lib\lclinit.lci" />
+                    </Component>
+                    <Component Id="linux.h" DiskId="1" Guid="621D7BEE-A067-44EE-9734-664C5D83FCF0">
+                        <File Id="linux.h" Name="linux.h" Source="..\lib\linux.h" />
+                    </Component>
+                    <Component Id="lslinit.lsi" DiskId="1" Guid="FCB3821C-65CE-43DA-9CD2-BEB04EB5DDBA">
+                        <File Id="lslinit.lsi" Name="lslinit.lsi" Source="..\lib\lslinit.lsi" />
+                    </Component>
+                    <Component Id="Makefile" DiskId="1" Guid="2CE92C41-77BA-4FDE-AE39-2C25DE2C407D">
+                        <File Id="Makefile" Name="Makefile" Source="..\lib\Makefile" />
+                    </Component>
+                    <Component Id="Makefile.am" DiskId="1" Guid="36DA491A-85CF-4FA5-827E-BD9CC94A8852">
+                        <File Id="Makefile.am" Name="Makefile.am" Source="..\lib\Makefile.am" />
+                    </Component>
+                    <Component Id="Makefile.in" DiskId="1" Guid="1BC009CF-5CCE-4E2B-9FD9-448F21F6A576">
+                        <File Id="Makefile.in" Name="Makefile.in" Source="..\lib\Makefile.in" />
+                    </Component>
+                    <Component Id="posix.h" DiskId="1" Guid="4C6D8BEA-F07B-4A0E-B844-C6B9F60ED66C">
+                        <File Id="posix.h" Name="posix.h" Source="..\lib\posix.h" />
+                    </Component>
+                    <Component Id="posix.lcd" DiskId="1" Guid="81E26A9F-50AC-4649-BAC0-4EBD50575B6A">
+                        <File Id="posix.lcd" Name="posix.lcd" Source="..\lib\posix.lcd" />
+                    </Component>
+                    <Component Id="posixstrict.lcd" DiskId="1" Guid="9EB80E4E-0F01-415C-96F9-E8921F43F244">
+                        <File Id="posixstrict.lcd" Name="posixstrict.lcd" Source="..\lib\posixstrict.lcd" />
+                    </Component>
+                    <Component Id="standard.h" DiskId="1" Guid="B565D13C-2EDC-4F5B-BC5F-585462751073">
+                        <File Id="standard.h" Name="standard.h" Source="..\lib\standard.h" />
+                    </Component>
+                    <Component Id="standard.lcd" DiskId="1" Guid="AD77A29A-27A6-46B9-8677-C74657AF2805">
+                        <File Id="standard.lcd" Name="standard.lcd" Source="..\lib\standard.lcd" />
+                    </Component>
+                    <Component Id="standardstrict.lcd" DiskId="1" Guid="799C49B6-06A8-4B01-9DB8-91E5A080E294">
+                        <File Id="standardstrict.lcd" Name="standardstrict.lcd" Source="..\lib\standardstrict.lcd" />
+                    </Component>
+                    <Component Id="stdio.h" DiskId="1" Guid="8BBC4403-6F6C-476D-BC23-AFC78C344249">
+                        <File Id="stdio.h" Name="stdio.h" Source="..\lib\stdio.h" />
+                    </Component>
+                    <Component Id="stdlib.h" DiskId="1" Guid="94A1ACBE-9C4A-49A9-9130-F970644E88F6">
+                        <File Id="stdlib.h" Name="stdlib.h" Source="..\lib\stdlib.h" />
+                    </Component>
+                    <Component Id="tainted.mts" DiskId="1" Guid="948BAE81-1E5F-462F-AEC8-E1B76DE8C54E">
+                        <File Id="tainted.mts" Name="tainted.mts" Source="..\lib\tainted.mts" />
+                    </Component>
+                    <Component Id="tainted.xh" DiskId="1" Guid="CDA46543-5BFA-48F2-9717-47FFE3EEC069">
+                        <File Id="tainted.xh" Name="tainted.xh" Source="..\lib\tainted.xh" />
+                    </Component>
+                    <Component Id="unix.h" DiskId="1" Guid="47ECB49A-5BF9-48EC-8054-29001F68B3E8">
+                        <File Id="unix.h" Name="unix.h" Source="..\lib\unix.h" />
+                    </Component>
+                    <Component Id="unix.lcd" DiskId="1" Guid="E6237716-F5BB-4464-AE65-869EA19FEA7A">
+                        <File Id="unix.lcd" Name="unix.lcd" Source="..\lib\unix.lcd" />
+                    </Component>
+                    <Component Id="unixstrict.lcd" DiskId="1" Guid="F67D32B9-C511-4A1A-A755-509CC9E20670">
+                        <File Id="unixstrict.lcd" Name="unixstrict.lcd" Source="..\lib\unixstrict.lcd" />
+                    </Component>
+                </Directory>
+            </Directory>
+        </Directory>
+        <Feature Id="DefaultFeature" Title="Main Feature" Level="1">
+            <ComponentRef Id="splint.exe" />
+            <ComponentRef Id="assert.lcl" />
+            <ComponentRef Id="assert.lcs" />
+            <ComponentRef Id="ctype.lcl" />
+            <ComponentRef Id="ctype.lcs" />
+            <ComponentRef Id="errno.lcl" />
+            <ComponentRef Id="errno.lcs" />
+            <ComponentRef Id="limits.lcl" />
+            <ComponentRef Id="limits.lcs" />
+            <ComponentRef Id="locale.lcl" />
+            <ComponentRef Id="locale.lcs" />
+            <ComponentRef Id="math.lcl" />
+            <ComponentRef Id="math.lcs" />
+            <ComponentRef Id="setjmp.lcl" />
+            <ComponentRef Id="setjmp.lcs" />
+            <ComponentRef Id="signal.lcl" />
+            <ComponentRef Id="signal.lcs" />
+            <ComponentRef Id="stdarg.lcl" />
+            <ComponentRef Id="stdarg.lcs" />
+            <ComponentRef Id="stdio.lcl" />
+            <ComponentRef Id="stdio.lcs" />
+            <ComponentRef Id="stdlib.lcl" />
+            <ComponentRef Id="stdlib.lcs" />
+            <ComponentRef Id="string.lcl" />
+            <ComponentRef Id="string.lcs" />
+            <ComponentRef Id="strings.lcl" />
+            <ComponentRef Id="strings.lcs" />
+            <ComponentRef Id="time.lcl" />
+            <ComponentRef Id="time.lcs" />
+            <ComponentRef Id="bool.h" />
+            <ComponentRef Id="CTrait.syms" />
+            <ComponentRef Id="CTraitGen.lcl" />
+            <ComponentRef Id="file.mts" />
+            <ComponentRef Id="file.xh" />
+            <ComponentRef Id="filerw.mts" />
+            <ComponentRef Id="filerw.xh" />
+            <ComponentRef Id="lclinit.lci" />
+            <ComponentRef Id="linux.h" />
+            <ComponentRef Id="lslinit.lsi" />
+            <ComponentRef Id="Makefile" />
+            <ComponentRef Id="Makefile.am" />
+            <ComponentRef Id="Makefile.in" />
+            <ComponentRef Id="posix.h" />
+            <ComponentRef Id="posix.lcd" />
+            <ComponentRef Id="posixstrict.lcd" />
+            <ComponentRef Id="standard.h" />
+            <ComponentRef Id="standard.lcd" />
+            <ComponentRef Id="standardstrict.lcd" />
+            <ComponentRef Id="stdio.h" />
+            <ComponentRef Id="stdlib.h" />
+            <ComponentRef Id="tainted.mts" />
+            <ComponentRef Id="tainted.xh" />
+            <ComponentRef Id="unix.h" />
+            <ComponentRef Id="unix.lcd" />
+            <ComponentRef Id="unixstrict.lcd" />
+            <ComponentRef Id="StartMenuShortcuts" />
+            <ComponentRef Id="LICENSE" />
+            <ComponentRef Id="README" />
+        </Feature>
+        <UI />
+        <UIRef Id="WixUI_Minimal" />
+        <WixVariable Id="WixUILicenseRtf" Value="LICENSE.rtf" />
+        <WixVariable Id="WixUIBannerBmp" Value="Bitmaps\bannrbmp.bmp" />
+        <WixVariable Id="WixUIDialogBmp" Value="Bitmaps\dlgbmp.bmp" />
+        <Property Id="ALLUSERS" Value="1" />
+    </Product>
+</Wix>
