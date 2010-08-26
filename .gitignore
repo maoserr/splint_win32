@@ -1,6 +1,8 @@
 *.swp
 bin/*
-msvc/msvc2008_splint/msvc2008_splint.ncb
+msvc/*/*.ncb
+msvc/*/*.suo
+msvc/*/*/*.user
 msvc/msvc2008_splint/msvc2008_splint/Debug/*
 msvc/msvc2008_splint/msvc2008_splint/Release/*
 
