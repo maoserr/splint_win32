@@ -290,6 +290,6 @@
         <WixVariable Id="WixUIBannerBmp" Value="Bitmaps\bannrbmp.bmp" />
         <WixVariable Id="WixUIDialogBmp" Value="Bitmaps\dlgbmp.bmp" />
         <Property Id="ALLUSERS" Value="1" />
-        <Icon Id="icon.exe" SourceFile="..\bin\splint.exe" />
+        <Icon Id="icon.exe" SourceFile="..\msvc\app.ico" />
     </Product>
 </Wix>
