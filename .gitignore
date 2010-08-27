@@ -1,9 +1,9 @@
 *.swp
-bin/*
-msi_installer/splint.log
-msi_installer/splint.msi
-msi_installer/splint.wixobj
-msi_installer/splint.wixpdb
+bin/splint.exe
+msi_installer/splint*.log
+msi_installer/splint*.msi
+msi_installer/splint*.wixobj
+msi_installer/splint*.wixpdb
 msvc/*/*.ncb
 msvc/*/*.suo
 msvc/*/*/*.user
