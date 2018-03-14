@@ -22,3 +22,6 @@ No modification to the source code was necessary.  Visual Studio 2008 Solution
 files are in the msvc folder.  If you want to build the .msi installer you'll
 need Wix.
 
+Windows downloads:
+
+https://github.com/maoserr/splint_win32/downloads
